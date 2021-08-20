@@ -45,3 +45,30 @@ document.getElementById("add-btn").addEventListener("click", function () {
 document.getElementById("item-container").addEventListener("dblclick", function (event) {
     event.target.parentNode.removeChild(event.target);
 });
+
+// update input value
+
+// get button
+const inputBtn = document.getElementsByClassName("increase-value")[0].getElementsByTagName("button");
+// set button attributes
+console.log(inputBtn);
+inputBtn[0].setAttribute("id", "input-btn");
+inputBtn[0].setAttribute("class", "input-btn");
+// counting value update
+let valueUpdateCounter = 0;
+document.getElementById("input-btn").addEventListener("click", function () {
+    valueUpdateCounter++;
+
+    if (valueUpdateCounter <= 5) {
+        // get number from input number area
+        const inputNumber = document.getElementById("input-number");
+        const previousInputNumber = parseInt(document.getElementById("input-number").value);
+        // update value
+        inputNumber.value = (previousInputNumber + 1);
+
+        if (valueUpdateCounter == 5) {
+            // inputBtn[0].setAttribute.disabled = "true";
+            inputBtn[0].style.display = "none";
+        }
+    }
+});
